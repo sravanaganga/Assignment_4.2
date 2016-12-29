@@ -1,0 +1,24 @@
+package mapreducer.task1;
+
+import java.io.IOException;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.*;
+
+public class Mapper2 extends Mapper<LongWritable,Text,Text,IntWritable> 
+{
+	@Override
+	public void map(LongWritable Key,Text value,Context context)throws IOException,InterruptedException
+	{
+		String line = value.toString();
+        	String[] lineArray = line.split("\\|");	
+	        int num = 1;        
+
+		if ( !(lineArray[0].toString().equals("NA") || lineArray[1].toString().equals("NA")) )
+		{
+			context.write(new Text(lineArray[0].toString()),new IntWritable(num));
+		}
+	}
+}
