@@ -27,7 +27,9 @@ public class Mapper2 extends Mapper<LongWritable,Text,Text,IntWritable>
 
 		if ( !(lineArray[0].toString().equals("NA") || lineArray[1].toString().equals("NA")) )
 		{
-			context.write(text.set(lineArray[0].toString()),inst.set(num));
+			text.set(lineArray[0].toString());
+			inst.set(num);
+			context.write(text,inst);
 		}
 	}
 }
