@@ -27,9 +27,9 @@ public class JobClass1
 	  job.setOutputKeyClass(Text.class);
 	  job.setOutputValueClass(IntWritable.class);
 	  
-	  job.setMapperClass(Mapper2.class);
-	  job.setReducerClass(Reducer2.class);
-	  job.setCombinerClass(Reducer2.class);
+	  job.setMapperClass(Mapper3.class);
+	  job.setReducerClass(Reducer3.class);
+	  job.setCombinerClass(Reducer3.class);
 	  
 	  job.setInputFormatClass(TextInputFormat.class);
 	  job.setOutputFormatClass(TextOutputFormat.class);
